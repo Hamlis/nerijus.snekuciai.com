@@ -1,0 +1,4 @@
+RewriteEngine on
+
+RewriteCond %{HTTP_HOST} !^nerijus\.snekuciai\.com$ [NC]
+RewriteRule ^(.*)$ http://nerijus.snekuciai.com/$1 [R=301,L]

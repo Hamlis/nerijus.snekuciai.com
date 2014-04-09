@@ -1,0 +1,47 @@
+<div class="page-header" ng-show="category">
+	<h1>{{category.title}}</h1>
+</div>
+<div class="alert alert-error" ng-show="error">
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<strong>Oi!</strong> {{error}}<br/>
+	<a href="/nerijus" class="btn">Atnaujinti</a>
+</div>
+
+<div class="pagination" ng-hide="total_pages == 1">
+	<ul>
+		<li ng-class="{disabled: currentPage == 0}">
+			<a href ng-click="prevPage()">« Buvęs</a>
+		</li>
+		<li ng-repeat="n in range(pagedItems.length)"
+			ng-class="{active: n == currentPage}"
+		ng-click="setPage()">
+			<a href ng-bind="n + 1">1</a>
+		</li>
+		<li ng-class="{disabled: currentPage == pagedItems.length - 1}">
+			<a href ng-click="nextPage()">Kitas »</a>
+		</li>
+	</ul>
+</div>
+
+<div>
+	<div class="well clearfix" ng-repeat="article in pagedItems[currentPage]">
+		<h2 class="article-title">{{article.title}} <small class="label">Paskelbta: {{article.createdAt}}.</small></h2>
+		<p ng-bind-html-unsafe="article.content | trimArticle"></p>
+	</div>
+</div>
+
+<div class="pagination" ng-hide="total_pages == 1">
+	<ul>
+		<li ng-class="{disabled: currentPage == 0}">
+			<a href ng-click="prevPage()">« Buvęs</a>
+		</li>
+		<li ng-repeat="n in range(pagedItems.length)"
+			ng-class="{active: n == currentPage}"
+		ng-click="setPage()">
+			<a href ng-bind="n + 1">1</a>
+		</li>
+		<li ng-class="{disabled: currentPage == pagedItems.length - 1}">
+			<a href ng-click="nextPage()">Kitas »</a>
+		</li>
+	</ul>
+</div>
