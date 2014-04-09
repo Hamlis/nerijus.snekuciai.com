@@ -1,4 +1,4 @@
-var SERVER_ENDPOINT = '/martynas_mvc/';
+var SERVER_ENDPOINT = 'http://martynas.snekuciai.com/';
 
 function NewsFrontCtrl($scope, $http) {
   $scope.categories = [];
